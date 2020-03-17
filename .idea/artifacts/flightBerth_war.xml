@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="flightBerth:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="flightBerth-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="flightBerth:war exploded" />
+    </root>
+  </artifact>
+</component>
