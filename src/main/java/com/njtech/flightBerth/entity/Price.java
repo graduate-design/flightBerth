@@ -14,12 +14,10 @@ public class Price implements Serializable {
     private int priceCode;
     //出价价格
     private double price;
-    //出价人ID
-    private int usercode;
-    //出价人姓名
-    private String name;
-    //航班信息id
-    private int flightCode;
+    //出价人ID、identity(使用user对象)
+    private User user;
+    //航班信息id（使用flight对象）
+    private Flight flight;
     //出价时间
     private String createTime;
     //备注
@@ -27,16 +25,15 @@ public class Price implements Serializable {
     //是否删除
     private boolean delFlag;
 
-    public Price(String createTime, boolean delFlag, int flightCode, int id, String name, double price, int priceCode, String remark, int usercode) {
+    public Price(String createTime, boolean delFlag, Flight flight, int id, double price, int priceCode, String remark, User user) {
         this.createTime = createTime;
         this.delFlag = delFlag;
-        this.flightCode = flightCode;
+        this.flight = flight;
         this.id = id;
-        this.name = name;
         this.price = price;
         this.priceCode = priceCode;
         this.remark = remark;
-        this.usercode = usercode;
+        this.user = user;
     }
 
     public int getId() {
@@ -47,20 +44,20 @@ public class Price implements Serializable {
         this.id = id;
     }
 
-    public int getFlightCode() {
-        return flightCode;
+    public Flight getFlight() {
+        return flight;
     }
 
-    public void setFlightCode(int flightCode) {
-        this.flightCode = flightCode;
+    public void setFlight(Flight flight) {
+        this.flight = flight;
     }
 
-    public String getName() {
-        return name;
+    public User getUser() {
+        return user;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public double getPrice() {
@@ -77,14 +74,6 @@ public class Price implements Serializable {
 
     public void setPriceCode(int priceCode) {
         this.priceCode = priceCode;
-    }
-
-    public int getUsercode() {
-        return usercode;
-    }
-
-    public void setUsercode(int usercode) {
-        this.usercode = usercode;
     }
 
     public String getCreateTime() {
@@ -109,5 +98,19 @@ public class Price implements Serializable {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    @Override
+    public String toString() {
+        return "Price{" +
+                "createTime='" + createTime + '\'' +
+                ", id=" + id +
+                ", priceCode=" + priceCode +
+                ", price=" + price +
+                ", user=" + user +
+                ", flight=" + flight +
+                ", remark='" + remark + '\'' +
+                ", delFlag=" + delFlag +
+                '}';
     }
 }
