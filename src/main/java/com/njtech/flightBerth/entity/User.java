@@ -23,11 +23,12 @@ public class User implements Serializable{
     //身份信息
     private int identity;
     //权限等级代码
-    private int authority;
+    private Authority authority;
     //备注
     private String remark;
     //构造函数
-    public User(int age, int authority, int id, int identity, String name, int phoneNum, String remark, String sex, int usercode) {
+
+    public User(int age, Authority authority, int id, int identity, String name, int phoneNum, String remark, String sex, int usercode) {
         this.age = age;
         this.authority = authority;
         this.id = id;
@@ -47,11 +48,11 @@ public class User implements Serializable{
         this.age = age;
     }
 
-    public int getAuthority() {
+    public Authority getAuthority() {
         return authority;
     }
 
-    public void setAuthority(int authority) {
+    public void setAuthority(Authority authority) {
         this.authority = authority;
     }
 
