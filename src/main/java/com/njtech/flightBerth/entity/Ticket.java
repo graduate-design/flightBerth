@@ -10,6 +10,8 @@ import java.io.Serializable;
 public class Ticket implements Serializable {
     //id
     private int id;
+    //机票信息编码
+    private int ticCode;
     //乘客身份信息、姓名(使用user对象)
     private User user;
     //购票方式 1为非折扣购票 0为折扣购票
@@ -22,6 +24,8 @@ public class Ticket implements Serializable {
     private String start;
     //目的地
     private String destination;
+    //预计登机时间
+    private String flightTime;
     //起飞日期
     private String flightDate;
     //舱位等级ID（使用berth对象）
@@ -33,19 +37,21 @@ public class Ticket implements Serializable {
     //备注
     private String remark;
 
-    public Ticket(AirCompany airCompany, Berth berth, int buyWay, String destination, String flightDate, int flightNum, String gateNum, int id,User user, String remark, String seatNum, String start) {
+    public Ticket(AirCompany airCompany, Berth berth, int buyWay, String destination, String flightDate, int flightNum, String flightTime, String gateNum, int id, String remark, String seatNum, String start, int ticCode, User user) {
         this.airCompany = airCompany;
         this.berth = berth;
         this.buyWay = buyWay;
         this.destination = destination;
         this.flightDate = flightDate;
         this.flightNum = flightNum;
+        this.flightTime = flightTime;
         this.gateNum = gateNum;
         this.id = id;
-        this.user = user;
         this.remark = remark;
         this.seatNum = seatNum;
         this.start = start;
+        this.ticCode = ticCode;
+        this.user = user;
     }
 
     public int getId() {
@@ -55,6 +61,15 @@ public class Ticket implements Serializable {
     public void setId(int id) {
         this.id = id;
     }
+
+    public int getTicCode() {
+        return ticCode;
+    }
+
+    public void setTicCode(int ticCode) {
+        this.ticCode = ticCode;
+    }
+
 
     public User getUser() {
         return user;
@@ -96,6 +111,14 @@ public class Ticket implements Serializable {
         this.flightDate = flightDate;
     }
 
+    public String getFlightTime() {
+        return flightTime;
+    }
+
+    public void setFlightTime(String flightTime) {
+        this.flightTime = flightTime;
+    }
+
     public String getStart() {
         return start;
     }
@@ -110,6 +133,10 @@ public class Ticket implements Serializable {
 
     public void setDestination(String destination) {
         this.destination = destination;
+    }
+
+    public void setBerth(Berth berth) {
+        this.berth = berth;
     }
 
     public Berth getBerth() {

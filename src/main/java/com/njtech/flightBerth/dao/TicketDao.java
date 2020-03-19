@@ -11,10 +11,17 @@ import java.util.List;
  */
 public interface TicketDao {
     /**
-     * 查找所用机票信息
+     * 查找所有机票信息
      * @return
      */
     public List<Ticket> selectAll();
+
+    /**
+     * 根据机票信息编码查找机票信息
+     * @param ticCode
+     * @return
+     */
+    public Ticket selectByTicCode(int ticCode);
 
     /**
      * 根据身份信息查找所有历史机票
@@ -24,10 +31,24 @@ public interface TicketDao {
     public List<Ticket> selectByIdentity(int identity);
 
     /**
-     * 根据航班号与起飞日期查找机票信息
-     * @param flightNum
-     * @param flightDate
+     * 插入机票信息
+     * @param ticket
      * @return
      */
-    public Ticket selectByFlightNumAndFlightDate(int flightNum,String flightDate);
+    public int insertTicket(Ticket ticket);
+
+    /**
+     * 更新机票信息
+     * @param ticket
+     * @return
+     */
+    public int updateTicket(Ticket ticket);
+
+    /**
+     * 根据机票信息编码删除机票信息
+     * @param ticketCode
+     * @return
+     */
+    public int deleteTicket(int ticketCode);
+
 }
