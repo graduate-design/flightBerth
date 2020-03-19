@@ -14,8 +14,8 @@ public class Ticket implements Serializable {
     private int ticCode;
     //乘客身份信息、姓名(使用user对象)
     private User user;
-    //购票方式 1为非折扣购票 0为折扣购票
-    private int buyWay;
+    //购票方式 是否为折扣票 True为折扣购票 false为非折扣购票
+    private boolean buyWay;
     //航空公司id(使用aircompany对象)
     private AirCompany airCompany;
     //航班号
@@ -37,7 +37,7 @@ public class Ticket implements Serializable {
     //备注
     private String remark;
 
-    public Ticket(AirCompany airCompany, Berth berth, int buyWay, String destination, String flightDate, int flightNum, String flightTime, String gateNum, int id, String remark, String seatNum, String start, int ticCode, User user) {
+    public Ticket(AirCompany airCompany, Berth berth, boolean buyWay, String destination, String flightDate, int flightNum, String flightTime, String gateNum, int id, String remark, String seatNum, String start, int ticCode, User user) {
         this.airCompany = airCompany;
         this.berth = berth;
         this.buyWay = buyWay;
@@ -79,11 +79,11 @@ public class Ticket implements Serializable {
         this.user = user;
     }
 
-    public int getBuyWay() {
+    public boolean isBuyWay() {
         return buyWay;
     }
 
-    public void setBuyWay(int buyWay) {
+    public void setBuyWay(boolean buyWay) {
         this.buyWay = buyWay;
     }
 
