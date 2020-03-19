@@ -42,13 +42,13 @@ public interface BerthDao {
      * @param berthCode
      * @return
      */
-    public int deleteBerth(int berthCode);
+    public int deleteBerthByBerthCode(int berthCode);
 
     /**
      * 根据舱位名称删除舱位信息
      * @param berthName
      * @return
      */
-    public int deleteBerth(String berthName);
+    public int deleteBerthByBerthName(String berthName);
 
 }
