@@ -102,7 +102,7 @@ public class Price implements Serializable {
 
     @Override
     public String toString() {
-        return "Price{" +
+        return "PriceDao{" +
                 "createTime='" + createTime + '\'' +
                 ", id=" + id +
                 ", priceCode=" + priceCode +

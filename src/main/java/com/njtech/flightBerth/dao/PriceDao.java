@@ -1,6 +1,7 @@
 package com.njtech.flightBerth.dao;
 
 import com.njtech.flightBerth.entity.Flight;
+import com.njtech.flightBerth.entity.Price;
 import com.njtech.flightBerth.entity.User;
 
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
  * Date:2020-03-19 15:00
  * Description:<描述>
  */
-public interface Price {
+public interface PriceDao {
     /**
      * 查询所有出价信息
      * @return
@@ -29,7 +30,7 @@ public interface Price {
      * @param priceCode
      * @return
      */
-    public Price selectByPriceCode(int priceCode);
+    public PriceDao selectByPriceCode(int priceCode);
 
     /**
      * 根据用户与航班信息查询出价（查询该用户在一个航班的历史出价）

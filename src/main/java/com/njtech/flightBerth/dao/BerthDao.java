@@ -35,6 +35,20 @@ public interface BerthDao {
      * @param berth
      * @return
      */
-    public int uodateBerth(Berth berth);
+    public int updateBerth(Berth berth);
+
+    /**
+     * 根据舱位编码删除舱位信息
+     * @param berthCode
+     * @return
+     */
+    public int deleteBerth(int berthCode);
+
+    /**
+     * 根据舱位名称删除舱位信息
+     * @param berthName
+     * @return
+     */
+    public int deleteBerth(String berthName);
 
 }
