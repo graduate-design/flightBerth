@@ -47,4 +47,24 @@ public interface Price {
      */
     public List<Price> selectByFlightAndDelflag(Flight flight,boolean delFlag);
 
+    /**
+     * 插入出价信息
+     * @param price
+     * @return
+     */
+    public int insertPrice(Price price);
+    /**
+     * 更新出价信息
+     * @param price
+     * @return
+     */
+    public int updatePrice(Price price);
+
+    /**
+     * 删除出价信息
+     * @param priceCode
+     * @return
+     */
+    public int deletePrice(int priceCode);
+
 }
