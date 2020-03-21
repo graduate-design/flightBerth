@@ -105,4 +105,29 @@
                 FROM user_info b
                 WHERE b.phone=#{phone}
         </select>
+        <!--public int insertUser(User user);-->
+        <insert id="insertUser" parameterType="User">
+                INSERT INTO
+                user_info
+                (user_code,user_name,password,email,user_sex,user_age,phone,identity,authority_code)
+                VALUES
+                (#{usercode},#{name},#{password},#{email},#{sex},#{age},#{phone},#{identity},#{authority.id})
+        </insert>
+        <!--public int deleteUser(User user);-->
+        <update id="deleteUser" parameterType="User">
+                UPDATE
+                user_info
+                SET
+                user_code=#{usercode}
+                user_name=#{name}
+                password=#{password}
+                email=#{email}
+                user_sex=#{sex}
+                user_age=#{age}
+                phone=#{phone}
+                identity=#{identity}
+                authority_code=#{authority.id}
+                WHERE
+                user_code=#{usercode}
+        </update>
 </mapper>
