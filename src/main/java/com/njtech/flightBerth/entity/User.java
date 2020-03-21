@@ -14,6 +14,10 @@ public class User implements Serializable{
     private int usercode;
     //姓名
     private String name;
+    //密码
+    private String password;
+    //邮箱
+    private String email;
     //性别
     private String sex;
     //年龄
@@ -22,22 +26,41 @@ public class User implements Serializable{
     private int phoneNum;
     //身份信息
     private int identity;
-    //权限等级代码
+    //权限等级
     private Authority authority;
     //备注
     private String remark;
     //构造函数
 
-    public User(int age, Authority authority, int id, int identity, String name, int phoneNum, String remark, String sex, int usercode) {
+
+    public User(int age, Authority authority, String email, int id, int identity, String name, String password, int phoneNum, String remark, String sex, int usercode) {
         this.age = age;
         this.authority = authority;
+        this.email = email;
         this.id = id;
         this.identity = identity;
         this.name = name;
+        this.password = password;
         this.phoneNum = phoneNum;
         this.remark = remark;
         this.sex = sex;
         this.usercode = usercode;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getAge() {
