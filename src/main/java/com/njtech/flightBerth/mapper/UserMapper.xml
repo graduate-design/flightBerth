@@ -113,8 +113,8 @@
                 VALUES
                 (#{usercode},#{name},#{password},#{email},#{sex},#{age},#{phone},#{identity},#{authority.id})
         </insert>
-        <!--public int deleteUser(User user);-->
-        <update id="deleteUser" parameterType="User">
+        <!--public int updateUser(User user);-->
+        <update id="updateUser" parameterType="User">
                 UPDATE
                 user_info
                 SET
@@ -130,4 +130,11 @@
                 WHERE
                 user_code=#{usercode}
         </update>
+        <!--public int deleteUser(User user);-->
+        <delete id="deleteUser" parameterType="User">
+                DELETE FROM
+                user_info
+                WHERE
+                user_code=#{usercode}
+        </delete>
 </mapper>
