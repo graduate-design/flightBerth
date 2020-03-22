@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.njtech.flightBerth.dao.TicketDao">
+    <resultMap id="RM" type="Ticket">
+        <id property="id" column="id"/>
+        <result property="ticCode" column="tic_code"/>
+        <result property="user.identity" column="identity"/>
+        <result property="user.name" column="user_name"/>
+        <result property="buyWay" column="buy_way"/>
+        <result property="airCompany.airCompanyName" column="air_company_name"/>
+        <result property="flightNum" column="flight_num"/>
+        <result property="start" column="start"/>
+        <result property="destination" column="destination"/>
+        <result property="flightTime" column="flight_time"/>
+        <result property="flightDate" column="flight_date"/>
+        <result property="berth.berthName" column="berth_name"/>
+        <result property="gateNum" column="gate_num"/>
+        <result property="seatNum" column="seat_num"/>
+        <result property="remark" column="remark"/>
+    </resultMap>
+    <!--public List<Ticket> selectAll();-->
+    <select id="selectAll" resultMap="RM">
+        SELECT
+        b.id id,
+        b.tic_code tic_code,
+        b.identity identity,
+        b.user_name user_name,
+        b.buy_way buy_way,
+        b.flight_num flight_num,
+        b.start start,
+        b.destination destination,
+        b.flight_time flight_time,
+        b.flight_date flight_date,
+        b.gate_num gate_num,
+        b.seat_num seat_num,
+        b.remark remark,
+        (
+        SELECT
+        c.air_company_name
+        FROM aircompany_info c
+        WHERE c.air_company_code=b.air_company_code
+        )AS air_company_name
+        (
+        SELECT
+        d.berth_name
+        FROM berth_info
+        WHERE d.berth_code=b.berth_code
+        )AS berth_name
+        FROM tic_info b
+    </select>
+    <!-- public Ticket selectByTicCode(int ticCode);-->
+    <select id="selectByTicCode" resultMap="RM">
+        SELECT
+        b.id id,
+        b.tic_code tic_code,
+        b.identity identity,
+        b.user_name user_name,
+        b.buy_way buy_way,
+        b.flight_num flight_num,
+        b.start start,
+        b.destination destination,
+        b.flight_time flight_time,
+        b.flight_date flight_date,
+        b.gate_num gate_num,
+        b.seat_num seat_num,
+        b.remark remark,
+        (
+        SELECT
+        c.air_company_name
+        FROM aircompany_info c
+        WHERE c.air_company_code=b.air_company_code
+        )AS air_company_name
+        (
+        SELECT
+        d.berth_name
+        FROM berth_info
+        WHERE d.berth_code=b.berth_code
+        )AS berth_name
+        FROM tic_info b
+        WHERE b.tic_code=#{ticCode}
+    </select>
+    <!--public List<Ticket> selectByIdentity(int identity);-->
+    <select id="selectByIdentity" resultMap="RM">
+        SELECT
+        b.id id,
+        b.tic_code tic_code,
+        b.identity identity,
+        b.user_name user_name,
+        b.buy_way buy_way,
+        b.flight_num flight_num,
+        b.start start,
+        b.destination destination,
+        b.flight_time flight_time,
+        b.flight_date flight_date,
+        b.gate_num gate_num,
+        b.seat_num seat_num,
+        b.remark remark,
+        (
+        SELECT
+        c.air_company_name
+        FROM aircompany_info c
+        WHERE c.air_company_code=b.air_company_code
+        )AS air_company_name
+        (
+        SELECT
+        d.berth_name
+        FROM berth_info
+        WHERE d.berth_code=b.berth_code
+        )AS berth_name
+        FROM tic_info b
+        WHERE b.identity=#{identity}
+    </select>
+    <!--public int insertTicket(Ticket ticket);-->
+    <insert id="insertTicket" parameterType="Ticket">
+        INSERT INTO
+        tic_info
+        (tic_code,identity,user_name,buy_way,flight_num,start,destination,flight_time,flight_date,gate_num,gate_seat,remark,air_company_code,berth_code)
+        VALUES
+        (#{ticCode},#{user.identity},#{user.name},#{buyWay},#{flightNum},#{start},#{destination},#{flightTime},#{flightDate},#{gateNum},#{gateSeat},#{remark},#{airCompany.airCompanyCode},#{berth.berthCode})
+    </insert>
+    <!--public int updateTicket(Ticket ticket);-->
+    <update id="updateTicket" parameterType="Ticket">
+        UPDATE
+        tic_info
+        SET
+        tic_code=#{ticCode}
+        identity=#{user.identity}
+        user_name=#{user.name}
+        buy_way=#{buyWay}
+        flight_num=#{flightNum}
+        start=#{start}
+        destination=#{destination}
+        flight_time=#{flightTime}
+        flight_date=#{flightDate}
+        gate_num=#{gateNum}
+        gate_seat=#{gateSeat}
+        reamrk=#{remark}
+        air_company_code=#{airCompany.airCompanyCode}
+        berth_code=#{berth.berthCode}
+        WHERE
+        tic_code=#{ticCode}
+    </update>
+    <!--public int deleteTicket(Ticket ticket);-->
+    <delete id="deleteTicket" parameterType="Ticket">
+        DELETE FROM
+        tic_info
+        WHERE
+        tic_code=#{ticCode}
+    </delete>
+</mapper>

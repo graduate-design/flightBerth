@@ -46,9 +46,9 @@ public interface TicketDao {
 
     /**
      * 根据机票信息编码删除机票信息
-     * @param ticketCode
+     * @param ticket
      * @return
      */
-    public int deleteTicket(int ticketCode);
+    public int deleteTicket(Ticket ticket);
 
 }

@@ -16,7 +16,7 @@ public class Ticket implements Serializable {
     private User user;
     //购票方式 是否为折扣票 True为折扣购票 false为非折扣购票
     private boolean buyWay;
-    //航空公司id(使用aircompany对象)
+    //航空公司名称(使用aircompany对象)
     private AirCompany airCompany;
     //航班号
     private int flightNum;
@@ -28,7 +28,7 @@ public class Ticket implements Serializable {
     private String flightTime;
     //起飞日期
     private String flightDate;
-    //舱位等级ID（使用berth对象）
+    //舱位等级名称（使用berth对象）
     private Berth berth;
     //登机口
     private String gateNum;
