@@ -14,41 +14,41 @@ public interface BerthDao {
      * 查询所有舱位等级
      * @return
      */
-    public List<Berth> selectAll();
+     List<Berth> selectAll();
 
     /**
      * 根据舱位编码查询舱位信息
      * @param berthCode
      * @return
      */
-    public Berth selectByBerthCode(int berthCode);
+     Berth selectByBerthCode(String berthCode);
 
     /**
      * 根据舱位名称查询舱位信息
      * @param berthName
      * @return
      */
-    public Berth selectByBerthName(String berthName);
+     Berth selectByBerthName(String berthName);
 
     /**
      * 更新舱位信息
      * @param berth
      * @return
      */
-    public int updateBerth(Berth berth);
+     int updateBerth(Berth berth);
 
     /**
      * 根据舱位编码删除舱位信息
      * @param berthCode
      * @return
      */
-    public int deleteBerthByBerthCode(int berthCode);
+     int deleteBerthByBerthCode(String berthCode);
 
     /**
      * 根据舱位名称删除舱位信息
      * @param berthName
      * @return
      */
-    public int deleteBerthByBerthName(String berthName);
+     int deleteBerthByBerthName(String berthName);
 
 }

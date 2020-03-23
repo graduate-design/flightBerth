@@ -3,7 +3,7 @@ package com.njtech.flightBerth.entity;
 import java.io.Serializable;
 
 /**
- * Author:helloboy
+ * @Author:helloboy
  * Date:2020-03-16 21:04
  * Description:<描述>
  */
@@ -11,7 +11,7 @@ public class Ticket implements Serializable {
     //id
     private int id;
     //机票信息编码
-    private int ticCode;
+    private String ticCode;
     //乘客身份信息、姓名(使用user对象)
     private User user;
     //购票方式 是否为折扣票 True为折扣购票 false为非折扣购票
@@ -37,7 +37,7 @@ public class Ticket implements Serializable {
     //备注
     private String remark;
 
-    public Ticket(AirCompany airCompany, Berth berth, boolean buyWay, String destination, String flightDate, int flightNum, String flightTime, String gateNum, int id, String remark, String seatNum, String start, int ticCode, User user) {
+    public Ticket(AirCompany airCompany, Berth berth, boolean buyWay, String destination, String flightDate, int flightNum, String flightTime, String gateNum, int id, String remark, String seatNum, String start, String ticCode, User user) {
         this.airCompany = airCompany;
         this.berth = berth;
         this.buyWay = buyWay;
@@ -62,11 +62,11 @@ public class Ticket implements Serializable {
         this.id = id;
     }
 
-    public int getTicCode() {
+    public String getTicCode() {
         return ticCode;
     }
 
-    public void setTicCode(int ticCode) {
+    public void setTicCode(String ticCode) {
         this.ticCode = ticCode;
     }
 

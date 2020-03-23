@@ -14,41 +14,41 @@ public interface TicketDao {
      * 查找所有机票信息
      * @return
      */
-    public List<Ticket> selectAll();
+     List<Ticket> selectAll();
 
     /**
      * 根据机票信息编码查找机票信息
      * @param ticCode
      * @return
      */
-    public Ticket selectByTicCode(int ticCode);
+     Ticket selectByTicCode(String ticCode);
 
     /**
      * 根据身份信息查找所有历史机票
      * @param identity
      * @return
      */
-    public List<Ticket> selectByIdentity(int identity);
+     List<Ticket> selectByIdentity(String identity);
 
     /**
      * 插入机票信息
      * @param ticket
      * @return
      */
-    public int insertTicket(Ticket ticket);
+     int insertTicket(Ticket ticket);
 
     /**
      * 更新机票信息
      * @param ticket
      * @return
      */
-    public int updateTicket(Ticket ticket);
+     int updateTicket(Ticket ticket);
 
     /**
      * 根据机票信息编码删除机票信息
      * @param ticket
      * @return
      */
-    public int deleteTicket(Ticket ticket);
+     int deleteTicket(Ticket ticket);
 
 }

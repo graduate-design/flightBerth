@@ -9,21 +9,21 @@ public class AirCompany {
     //id
     private int id;
     //航空公司编码
-    private int airCompanyCode;
+    private String airCompanyCode;
     //航空公司名称
     private String airCompanyName;
 
-    public AirCompany(int airCompanyCode, String airCompanyName, int id) {
+    public AirCompany(String airCompanyCode, String airCompanyName, int id) {
         this.airCompanyCode = airCompanyCode;
         this.airCompanyName = airCompanyName;
         this.id = id;
     }
 
-    public int getAirCompanyCode() {
+    public String getAirCompanyCode() {
         return airCompanyCode;
     }
 
-    public void setAirCompanyCode(int airCompanyCode) {
+    public void setAirCompanyCode(String airCompanyCode) {
         this.airCompanyCode = airCompanyCode;
     }
 

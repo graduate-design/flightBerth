@@ -11,7 +11,7 @@ public class User implements Serializable{
     //ID
     private int id;
     //用户编码
-    private int usercode;
+    private String userCode;
     //姓名
     private String name;
     //密码
@@ -25,7 +25,7 @@ public class User implements Serializable{
     //联系电话
     private int phoneNum;
     //身份信息
-    private int identity;
+    private String identity;
     //权限等级
     private Authority authority;
     //备注
@@ -33,7 +33,7 @@ public class User implements Serializable{
     //构造函数
 
 
-    public User(int age, Authority authority, String email, int id, int identity, String name, String password, int phoneNum, String remark, String sex, int usercode) {
+    public User(int age, Authority authority, String email, int id, String identity, String name, String password, int phoneNum, String remark, String sex, String usercode) {
         this.age = age;
         this.authority = authority;
         this.email = email;
@@ -44,7 +44,7 @@ public class User implements Serializable{
         this.phoneNum = phoneNum;
         this.remark = remark;
         this.sex = sex;
-        this.usercode = usercode;
+        this.userCode = usercode;
     }
 
     public String getEmail() {
@@ -87,11 +87,11 @@ public class User implements Serializable{
         this.id = id;
     }
 
-    public int getIdentity() {
+    public String getIdentity() {
         return identity;
     }
 
-    public void setIdentity(int identity) {
+    public void setIdentity(String identity) {
         this.identity = identity;
     }
 
@@ -127,12 +127,12 @@ public class User implements Serializable{
         this.sex = sex;
     }
 
-    public int getUsercode() {
-        return usercode;
+    public String getUserCode() {
+        return userCode;
     }
 
-    public void setUsercode(int usercode) {
-        this.usercode = usercode;
+    public void setUserCode(String usercode) {
+        this.userCode = usercode;
     }
 
     @Override
@@ -140,7 +140,7 @@ public class User implements Serializable{
         return "User{" +
                 "age=" + age +
                 ", id=" + id +
-                ", usercode=" + usercode +
+                ", usercode=" + userCode +
                 ", name='" + name + '\'' +
                 ", sex='" + sex + '\'' +
                 ", phoneNum=" + phoneNum +

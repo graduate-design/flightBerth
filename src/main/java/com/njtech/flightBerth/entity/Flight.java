@@ -9,7 +9,7 @@ public class Flight {
     //id
     private int id;
     //航班信息编码
-    private int flightCode;
+    private String flightCode;
     //航空公司名称
     private String airCompanyName;
     //航班号
@@ -21,7 +21,7 @@ public class Flight {
     //头等舱空位
     private int redundantFirstClass;
 
-    public Flight(String airCompanyName, int flightCode, String flightDate, int flightNum, int id, int redundantBusinessClass, int redundantFirstClass) {
+    public Flight(String airCompanyName, String flightCode, String flightDate, int flightNum, int id, int redundantBusinessClass, int redundantFirstClass) {
         this.airCompanyName = airCompanyName;
         this.flightCode = flightCode;
         this.flightDate = flightDate;
@@ -39,11 +39,11 @@ public class Flight {
         this.id = id;
     }
 
-    public int getFlightCode() {
+    public String getFlightCode() {
         return flightCode;
     }
 
-    public void setFlightCode(int flightCode) {
+    public void setFlightCode(String flightCode) {
         this.flightCode = flightCode;
     }
 

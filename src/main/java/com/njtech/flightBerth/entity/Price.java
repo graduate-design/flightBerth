@@ -11,7 +11,7 @@ public class Price implements Serializable {
     //id
     private int id;
     //出价号
-    private int priceCode;
+    private String priceCode;
     //出价价格
     private double price;
     //出价人ID、identity(使用user对象)
@@ -25,7 +25,7 @@ public class Price implements Serializable {
     //是否删除
     private boolean delFlag;
 
-    public Price(String createTime, boolean delFlag, Flight flight, int id, double price, int priceCode, String remark, User user) {
+    public Price(String createTime, boolean delFlag, Flight flight, int id, double price, String priceCode, String remark, User user) {
         this.createTime = createTime;
         this.delFlag = delFlag;
         this.flight = flight;
@@ -68,11 +68,11 @@ public class Price implements Serializable {
         this.price = price;
     }
 
-    public int getPriceCode() {
+    public String getPriceCode() {
         return priceCode;
     }
 
-    public void setPriceCode(int priceCode) {
+    public void setPriceCode(String priceCode) {
         this.priceCode = priceCode;
     }
 

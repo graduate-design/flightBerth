@@ -9,11 +9,11 @@ public class Berth {
     //id
     private int id;
     //舱位等级编码
-    private int berthCode;
+    private String berthCode;
     //舱位等级名称
     private String berthName;
 
-    public Berth(int berthCode, String berthName, int id) {
+    public Berth(String berthCode, String berthName, int id) {
         this.berthCode = berthCode;
         this.berthName = berthName;
         this.id = id;
@@ -27,11 +27,11 @@ public class Berth {
         this.id = id;
     }
 
-    public int getBerthCode() {
+    public String getBerthCode() {
         return berthCode;
     }
 
-    public void setBerthCode(int berthCode) {
+    public void setBerthCode(String berthCode) {
         this.berthCode = berthCode;
     }
 

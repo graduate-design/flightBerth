@@ -15,55 +15,55 @@ public interface UserDao {
      *
      * @return List<User>
      */
-    public List<User> selectAll();
+     List<User> selectAll();
 
     /**
      * 根绝身份信息查找用户
      * @param identity
      * @return
      */
-    public User selectByIdentity(int identity);
+     User selectByIdentity(String identity);
 
     /**
      * 根据姓名查找用户
      * @param name
      * @return
      */
-    public List<User> selectByName(String name);
+     List<User> selectByName(String name);
 
     /**
      * 根据用户编码查找用户
      * @param userCode
      * @return
      */
-    public User selectByUserCode(int userCode);
+     User selectByUserCode(String userCode);
 
     /**
      * 根据手机号查找用户
      * @param phone
      * @return
      */
-    public List<User> selectByPhone(int phone);
+     List<User> selectByPhone(int phone);
 
     /**
      * 插入用户
      * @param user
      * @return
      */
-    public int insertUser(User user);
+     int insertUser(User user);
 
     /**
      * 删除用户
      * @param user
      * @return
      */
-    public int deleteUser(User user);
+     int deleteUser(User user);
 
     /**
      * 更新用户
      * @param user
      * @return
      */
-    public int updateUser(User user);
+     int updateUser(User user);
 
 }

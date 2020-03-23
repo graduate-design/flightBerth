@@ -14,40 +14,40 @@ public interface AuthorityDao {
      * 查询所有权限
      * @return
      */
-    public List<Authority> selectAll();
+    List<Authority> selectAll();
 
     /**
      * 根据权限编码查询权限
      * @param authorityCode
      * @return
      */
-    public Authority selectByAuthorityCode(int authorityCode);
+    Authority selectByAuthorityCode(int authorityCode);
 
     /**
      * 更新权限
      * @param authority
      * @return
      */
-    public int updateAuthority(Authority authority);
+     int updateAuthority(Authority authority);
 
     /**
      * 插入权限
      * @param authority
      * @return
      */
-    public int insertAuthority(Authority authority);
+     int insertAuthority(Authority authority);
 
     /**
      * 根据权限编码删除权限
      * @param authorityCode
      * @return
      */
-    public int deleteAuthorityByAuthorityCode(int authorityCode);
+     int deleteAuthorityByAuthorityCode(int authorityCode);
 
     /**
      * 根据权限名称删除权限
      * @param authorityName
      * @return
      */
-    public int deleteAuthorityByAuthorityName(String authorityName);
+     int deleteAuthorityByAuthorityName(String authorityName);
 }
