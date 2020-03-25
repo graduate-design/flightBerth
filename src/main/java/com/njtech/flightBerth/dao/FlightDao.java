@@ -33,9 +33,9 @@ public interface FlightDao {
 
     /**
      * 删除航班信息
-     * @param flightCode
+     * @param flight
      * @return
      */
-     int deleteFlight(String flightCode);
+     int deleteFlight(Flight flight);
 
 }

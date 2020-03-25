@@ -106,7 +106,7 @@
                 WHERE b.phone=#{phone}
         </select>
         <!--public int insertUser(User user);-->
-        <insert id="insertUser" parameterType="User">
+        <insert id="insertUser" parameterType="user">
                 INSERT INTO
                 user_info
                 (user_code,user_name,password,email,user_sex,user_age,phone,identity,authority_code)
@@ -114,7 +114,7 @@
                 (#{usercode},#{name},#{password},#{email},#{sex},#{age},#{phone},#{identity},#{authority.id})
         </insert>
         <!--public int updateUser(User user);-->
-        <update id="updateUser" parameterType="User">
+        <update id="updateUser" parameterType="user">
                 UPDATE
                 user_info
                 SET
@@ -131,7 +131,7 @@
                 user_code=#{usercode}
         </update>
         <!--public int deleteUser(User user);-->
-        <delete id="deleteUser" parameterType="User">
+        <delete id="deleteUser" parameterType="user">
                 DELETE FROM
                 user_info
                 WHERE

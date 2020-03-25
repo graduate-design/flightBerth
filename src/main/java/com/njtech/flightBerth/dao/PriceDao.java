@@ -3,6 +3,7 @@ package com.njtech.flightBerth.dao;
 import com.njtech.flightBerth.entity.Flight;
 import com.njtech.flightBerth.entity.Price;
 import com.njtech.flightBerth.entity.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -38,15 +39,15 @@ public interface PriceDao {
      * @param flight
      * @return
      */
-     List<Price> selectByUserAndFlight(User user,Flight flight);
+     List<Price> selectByUserAndFlight(@Param(value="user")User user,@Param(value="flight")Flight flight);
 
     /**
-     * 查询现存的特定航班所有出价（通过@pram delFlag进行出价是否删除的筛选，如果出价未删除则为最新出价，因为每个用户只有一个未删除出价，所以这样查询得出的出价表可以进行排序进行竞价操作）
+     * 查询现存的特定航班所有出价（通过@pram delFlag进行出价 是否删除的筛选，如果出价未删除则为最新出价，因为每个用户只有一个未删除出价，所以这样查询得出的出价表可以进行排序进行竞价操作）
      * @param flight
      * @param delFlag
      * @return
      */
-     List<Price> selectByFlightAndDelflag(Flight flight,boolean delFlag);
+     List<Price> selectByFlightAndDelflag(@Param(value="flight")Flight flight,@Param(value = "delFlag")boolean delFlag);
 
     /**
      * 插入出价信息
@@ -63,9 +64,9 @@ public interface PriceDao {
 
     /**
      * 删除出价信息
-     * @param priceCode
+     * @param price
      * @return
      */
-     int deletePrice(String priceCode);
+     int deletePrice(Price price);
 
 }

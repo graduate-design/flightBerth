@@ -46,8 +46,8 @@ public interface AuthorityDao {
 
     /**
      * 根据权限名称删除权限
-     * @param authorityName
+     * @param authority
      * @return
      */
-     int deleteAuthorityByAuthorityName(String authorityName);
+     int deleteAuthorityByAuthorityName(Authority authority);
 }

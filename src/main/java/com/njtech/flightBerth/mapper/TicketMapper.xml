@@ -113,7 +113,7 @@
         WHERE b.identity=#{identity}
     </select>
     <!--public int insertTicket(Ticket ticket);-->
-    <insert id="insertTicket" parameterType="Ticket">
+    <insert id="insertTicket" parameterType="ticket">
         INSERT INTO
         tic_info
         (tic_code,identity,user_name,buy_way,flight_num,start,destination,flight_time,flight_date,gate_num,gate_seat,remark,air_company_code,berth_code)
@@ -121,7 +121,7 @@
         (#{ticCode},#{user.identity},#{user.name},#{buyWay},#{flightNum},#{start},#{destination},#{flightTime},#{flightDate},#{gateNum},#{gateSeat},#{remark},#{airCompany.airCompanyCode},#{berth.berthCode})
     </insert>
     <!--public int updateTicket(Ticket ticket);-->
-    <update id="updateTicket" parameterType="Ticket">
+    <update id="updateTicket" parameterType="ticket">
         UPDATE
         tic_info
         SET
@@ -143,7 +143,7 @@
         tic_code=#{ticCode}
     </update>
     <!--public int deleteTicket(Ticket ticket);-->
-    <delete id="deleteTicket" parameterType="Ticket">
+    <delete id="deleteTicket" parameterType="ticket">
         DELETE FROM
         tic_info
         WHERE

@@ -46,9 +46,9 @@ public interface BerthDao {
 
     /**
      * 根据舱位名称删除舱位信息
-     * @param berthName
+     * @param berth
      * @return
      */
-     int deleteBerthByBerthName(String berthName);
+     int deleteBerthByBerthName(Berth berth);
 
 }

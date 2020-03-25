@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.njtech.flightBerth.dao.PriceDao">
+    <resultMap id="RM" type="Price">
+        <id property="id" column="id"/>
+        <result property="priceCode" column="price_code"/>
+        <result property="price" column="price"/>
+        <result property="user.userCode" column="user_code"/>
+        <result property="user.name" column="user_name"/>
+        <result property="flight.flightCode" column="flight_code"/>
+        <result property="createTime" column="create_time"/>
+        <result property="remark" column="remark"/>
+        <result property="delFlag" column="del_flag"/>
+        <result property="flight.flightNum" column="flight_num"/>
+        <result property="flight.flightDate" column="flight_date"/>
+    </resultMap>
+    <!--List<Price> selectAll();-->
+    <select id="selectAll" resultMap="RM">
+        SELECT
+        b.id id,
+        b.price_code price_code,
+        b.price price,
+        b.user_code user_code,
+        b.user_name user_name,
+        b.flight_code flight_code,
+        b.create_time create_time,
+        b.remark remark,
+        b.del_flag del_flag,
+        (
+        SELECT
+        c.flight_num flight_num AS flight_num,
+        c.flight_date flight_date AS flight-date,
+        FROM flight_info c
+        WHERE b.flight_code=c.flight_code
+        )
+        FROM price_info b
+    </select>
+    <!--List<Price> selectByFlight(Flight flight);-->
+    <select id="selectByFlight" resultMap="RM" parameterType="flight">
+        SELECT
+        b.id id,
+        b.price_code price_code,
+        b.price price,
+        b.user_code user_code,
+        b.user_name user_name,
+        b.flight_code flight_code,
+        b.create_time create_time,
+        b.remark remark,
+        b.del_flag del_flag,
+        (
+        SELECT
+        c.flight_num flight_num AS flight_num,
+        c.flight_date flight_date AS flight-date,
+        FROM flight_info c
+        WHERE b.flight_code=c.flight_code
+        )
+        FROM price_info b
+        WHERE b.flight_code=#{flight.flightCode}
+    </select>
+    <!--PriceDao selectByPriceCode(String priceCode);-->
+    <select id="selectByPriceCode" resultMap="RM">
+        SELECT
+        b.id id,
+        b.price_code price_code,
+        b.price price,
+        b.user_code user_code,
+        b.user_name user_name,
+        b.flight_code flight_code,
+        b.create_time create_time,
+        b.remark remark,
+        b.del_flag del_flag,
+        (
+        SELECT
+        c.flight_num flight_num AS flight_num,
+        c.flight_date flight_date AS flight-date,
+        FROM flight_info c
+        WHERE b.flight_code=c.flight_code
+        )
+        FROM price_info b
+        WHERE b.price_code=#{priceCode}
+    </select>
+    <!--List<Price> selectByUserAndFlight(@Param(value="user")User user,@Param(value="flight")Flight flight);-->
+    <select id="selectByUserAndFlight" resultMap="RM">
+    SELECT
+    b.id id,
+    b.price_code price_code,
+    b.price price,
+    b.user_code user_code,
+    b.user_name user_name,
+    b.flight_code flight_code,
+    b.create_time create_time,
+    b.remark remark,
+    b.del_flag del_flag,
+    (
+    SELECT
+    c.flight_num flight_num AS flight_num,
+    c.flight_date flight_date AS flight-date,
+    FROM flight_info c
+    WHERE b.flight_code=c.flight_code
+    )
+    FROM price_info b
+    WHERE b.flight_code=#{flight.flightCode} AND b.user_code=#{user.userCode}
+    </select>
+    <!--List<Price> selectByFlightAndDelflag(@Param(value="flight")Flight flight,@Param(value = "delFlag")boolean delFlag);-->
+    <select id="selectByUserAndFlight" resultMap="RM">
+        SELECT
+        b.id id,
+        b.price_code price_code,
+        b.price price,
+        b.user_code user_code,
+        b.user_name user_name,
+        b.flight_code flight_code,
+        b.create_time create_time,
+        b.remark remark,
+        b.del_flag del_flag,
+        (
+        SELECT
+        c.flight_num flight_num AS flight_num,
+        c.flight_date flight_date AS flight-date,
+        FROM flight_info c
+        WHERE b.flight_code=c.flight_code
+        )
+        FROM price_info b
+        WHERE b.flight_code=#{flight.flightCode} AND b.del_flag=#{delFlag} ORDER BY b.price DESC
+    </select>
+    <!--int insertPrice(Price price);-->
+    <insert id="inserPrice" parameterType="price">
+        INSERT INTO price_info
+              (price_code,price,user_code,user_name,flight_code,create_time,remark,del_flag)
+              VALUES
+              (#{priceCode},#{price},#{user.userCode},#{user.name},#{flight.flightCode},#{createTime},#{reamrk},#{delFlag})
+    </insert>
+    <!--int updatePrice(Price price);-->
+    <update id="updatePrice" parameterType="price">
+        UPDATE flight_info
+        SET
+        price_code=#{priceCode}
+        price=#{price}
+        user_code=#{user.userCode}
+        user_name=#{user.name}
+        flight_code=#{flight.flightCode}
+        create_time=#{createTime}
+        reamrk=#{remark}
+        del_flag+#{delFlag}
+    </update>
+    <!--int deletePrice(String priceCode);-->
+    <delete id="deletePrice" parameterType="price">
+        DELETE FROM
+        price_info
+        WHERE price_code=#{priceCode}
+    </delete>
+</mapper>

@@ -46,15 +46,15 @@ public interface AirCompanyDao {
 
     /**
      * 根据航空公司编码删除航空公司信息
-     * @param airCompanyCode
+     * @param airCompany
      * @return
      */
-    int deleteByAirCompanyCode(String airCompanyCode);
+    int deleteByAirCompanyCode(AirCompany airCompany);
 
     /**
      * 根据航空公司名称删除航空公司信息
-     * @param airCompanyName
+     * @param airCompany
      * @return
      */
-    int delteByAirCompanyName(String airCompanyName);
+    int delteByAirCompanyName(AirCompany airCompany);
 }
