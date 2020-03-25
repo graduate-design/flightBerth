@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80016
 File Encoding         : 65001
 
-Date: 2020-03-21 14:36:14
+Date: 2020-03-25 15:34:14
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -66,7 +66,7 @@ DROP TABLE IF EXISTS `flight_info`;
 CREATE TABLE `flight_info` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `flight_code` int(11) NOT NULL,
-  `air_company_name` varchar(255) NOT NULL,
+  `air_company_code` int(255) NOT NULL,
   `flight_num` int(11) NOT NULL,
   `flight_date` date NOT NULL,
   `redundant_business_class` int(11) NOT NULL,

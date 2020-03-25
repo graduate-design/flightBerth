@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--    //id
+    private int id;
+    //航班信息编码
+    private String flightCode;
+    //航空公司名称
+    private AirCompany airCompany;
+    //航班号
+    private int flightNum;
+    //起飞日期
+    private String flightDate;
+    //商务舱空位
+    private int redundantBusinessClass;
+    //头等舱空位
+    private int redundantFirstClass;
+
+DROP TABLE IF EXISTS `flight_info`;
+CREATE TABLE `flight_info` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `flight_code` int(11) NOT NULL,
+  `air_company_code` int(255) NOT NULL,
+  `flight_num` int(11) NOT NULL,
+  `flight_date` date NOT NULL,
+  `redundant_business_class` int(11) NOT NULL,
+  `redundant_first_class` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;-->
+<mapper namespace="com.njtech.flightBerth.dao.FlightDao">
+        <resultMap id="RM" type="flight">
+            <id property="id" column="id"/>
+            <result property="flightCode" column="flight_code"/>
+            <result property="airCompany.airCompanyCode" column="air_company_code"/>
+            <result property="airCompany.airCOmpanyName" column="air_company_name"/>
+            <result property="flightNum" column="flight_num"/>
+            <result property="flightDate" column="flight_date"/>
+            <result property="redundantBusinessClass" column="redundant_business_class"/>
+            <result property="redundantFirstClass" column="redundant_first_class"/>
+        </resultMap>
+        <!--List<Flight> selectAll();-->
+    <select id="selectAll" resultMap="RM">
+            SELECT
+            b.flight_code flight_code,
+            b.air_company_code air_company_code,
+            b.flight_num flight_num,
+            b.flight_date flight_date,
+            b.redundant_business_class redundant_business_class,
+            b.redundant_first_class redundant-first_class,
+            (
+            SELECT
+            c.air_company_name
+            FROM aircompany_info C
+            WHERE b.air_company_code=c.air_company_code
+            )AS air_company_name
+            FROM flight_info b
+    </select>
+    <!--Flight selectByFlightCode(String flightCode);-->
+    <select id="selectByFlightCode" resultMap="RM">
+                    SELECT
+            b.flight_code flight_code,
+            b.air_company_code air_company_code,
+            b.flight_num flight_num,
+            b.flight_date flight_date,
+            b.redundant_business_class redundant_business_class,
+            b.redundant_first_class redundant-first_class,
+            (
+            SELECT
+            c.air_company_name
+            FROM aircompany_info C
+            WHERE b.air_company_code=c.air_company_code
+            )AS air_company_name
+            FROM flight_info b
+            WHERE b.flight_code=#{flightCode}
+    </select>
+    <!--int updateFlight(Flight flight);-->
+    <update id="updateFlight" parameterType="flight">
+            UPDATE flight_info
+            SET
+            flight_code=#{flightCode}
+            air_company_code=#{airCompany.airCompanyCOde}
+            flight_num=#{flightNum}
+            flight_date=#{flightDate}
+            redundant_business_class=#{redundantBusinessClass}
+            redundant_first_class=#{redundantFirstClass}
+            WHERE flight_code=#{flight.flightCode}
+    </update>
+    <!--int insertFlight(Flight flight);-->
+    <insert id="insertFlight" parameterType="flight">
+            INSERT INTO flight_info
+            flight_code=#{flightCode}
+            air_company_code=#{airCompany.airCompanyCode}
+            flight_num=#{flight_num}
+            flight_date=#{flightDate}
+            redundant_business_class=#{redundantBusinessClass}
+            redundant_first_class=#{redundantFirstClass}
+            WHERE flight_code=#{flight.flightCode}
+    </insert>
+    <!--int deleteFlight(Flight flight);-->
+    <delete id="deleteFlight" parameterType="flight">
+            DELETE FROM flight_info
+            WHERE flight_code=#{flight.flightCode}
+    </delete>
+</mapper>

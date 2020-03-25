@@ -11,7 +11,7 @@ public class Flight {
     //航班信息编码
     private String flightCode;
     //航空公司名称
-    private String airCompanyName;
+    private AirCompany airCompany;
     //航班号
     private int flightNum;
     //起飞日期
@@ -21,8 +21,8 @@ public class Flight {
     //头等舱空位
     private int redundantFirstClass;
 
-    public Flight(String airCompanyName, String flightCode, String flightDate, int flightNum, int id, int redundantBusinessClass, int redundantFirstClass) {
-        this.airCompanyName = airCompanyName;
+    public Flight(AirCompany airCompany, String flightCode, String flightDate, int flightNum, int id, int redundantBusinessClass, int redundantFirstClass) {
+        this.airCompany = airCompany;
         this.flightCode = flightCode;
         this.flightDate = flightDate;
         this.flightNum = flightNum;
@@ -47,12 +47,12 @@ public class Flight {
         this.flightCode = flightCode;
     }
 
-    public String getAirCompanyName() {
-        return airCompanyName;
+    public AirCompany getAirCompany() {
+        return airCompany;
     }
 
-    public void setAirCompanyName(String airCompanyName) {
-        this.airCompanyName = airCompanyName;
+    public void setAirCompany(AirCompany airCompany) {
+        this.airCompany = airCompany;
     }
 
     public int getFlightNum() {
@@ -89,9 +89,9 @@ public class Flight {
     @Override
     public String toString() {
         return "Flight{" +
-                "airCompanyName='" + airCompanyName + '\'' +
+                "airCompany=" + airCompany +
                 ", id=" + id +
-                ", flightCode=" + flightCode +
+                ", flightCode='" + flightCode + '\'' +
                 ", flightNum=" + flightNum +
                 ", flightDate='" + flightDate + '\'' +
                 ", redundantBusinessClass=" + redundantBusinessClass +

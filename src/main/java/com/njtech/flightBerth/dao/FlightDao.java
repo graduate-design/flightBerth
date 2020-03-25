@@ -32,6 +32,13 @@ public interface FlightDao {
      int updateFlight(Flight flight);
 
     /**
+     *
+     * @param flight
+     * @return
+     */
+     int insertFlight(Flight flight);
+
+    /**
      * 删除航班信息
      * @param flight
      * @return
