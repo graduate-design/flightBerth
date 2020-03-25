@@ -38,11 +38,18 @@ public interface BerthDao {
      int updateBerth(Berth berth);
 
     /**
-     * 根据舱位编码删除舱位信息
-     * @param berthCode
+     *
+     * @param berth
      * @return
      */
-     int deleteBerthByBerthCode(String berthCode);
+     int insertBerth(Berth berth);
+
+    /**
+     * 根据舱位编码删除舱位信息
+     * @param berth
+     * @return
+     */
+     int deleteBerthByBerthCode(Berth berth);
 
     /**
      * 根据舱位名称删除舱位信息

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.njtech.flightBerth.dao.AirCompanyDao">
+    <resultMap id="RM" type="airCompany">
+        <id property="id" column="id"/>
+        <result property="airCompanyCode" column="air_company_code"/>
+        <result property="airCompanyName" column="air_company_name"/>
+    </resultMap>
+    <!--List<AirCompany> selectAll();-->
+    <select id="selectAll" resultMap="RM">
+      SELECT  * FROM aircompany_info
+    </select>
+    <!--AirCompany selectByAirCompanyCode(String AirCompanyCode);-->
+    <select id="selectByAirCompanyCode" resultMap="RM">
+      SELECT * FROM aircompany_info
+            WHERE air_company_code=#{airCompanyCode}
+    </select>
+    <!--AirCompany selectByAirCompanyName(String AirCompanyName);-->
+    <select id="selectByAirCompanyName" resultMap="RM">
+        SELECT * FROM aircompany_info
+        WHERE air_company_name=#{airCompanyName}
+    </select>
+    <!--int insertAirCompany(AirCompany airCompany);-->
+    <insert id="insertAirCompany" parameterType="airCompany">
+        INSERT INTO aircompany_info
+        (air_company_code,air_company_name)
+        VALUES (#{airCompanyCode},#{airCompanyName})
+    </insert>
+    <!--int updateAirCompany(AirCompany airCompany);-->
+    <update id="updateAirCompany" parameterType="airCompany">
+        UPDATE aircompany_info
+        SET
+        air_company_code=#{airCompanyCode}
+        air_company_name=#{airCompanyName}
+        WHERE air_company_code=#{airCompanyCode}
+    </update>
+    <!--int deleteByAirCompanyCode(AirCompany airCompany);-->
+    <delete id="deleteByAirCompanyCode" parameterType="airCompany">
+        DELETE FROM aircompany_info
+        WHERE air_comapny_code=#{airCompanyCode}
+    </delete>
+    <!--int delteByAirCompanyName(AirCompany airCompany);-->
+    <delete id="deleteByAirCompanyName" parameterType="airCompany">
+        DELETE FROM aircompany_info
+        WHERE air_company_name=#{airCompanyName}
+    </delete>
+</mapper>

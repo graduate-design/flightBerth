@@ -2,32 +2,6 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!--    //id
-    private int id;
-    //航班信息编码
-    private String flightCode;
-    //航空公司名称
-    private AirCompany airCompany;
-    //航班号
-    private int flightNum;
-    //起飞日期
-    private String flightDate;
-    //商务舱空位
-    private int redundantBusinessClass;
-    //头等舱空位
-    private int redundantFirstClass;
-
-DROP TABLE IF EXISTS `flight_info`;
-CREATE TABLE `flight_info` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `flight_code` int(11) NOT NULL,
-  `air_company_code` int(255) NOT NULL,
-  `flight_num` int(11) NOT NULL,
-  `flight_date` date NOT NULL,
-  `redundant_business_class` int(11) NOT NULL,
-  `redundant_first_class` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;-->
 <mapper namespace="com.njtech.flightBerth.dao.FlightDao">
         <resultMap id="RM" type="flight">
             <id property="id" column="id"/>
@@ -84,22 +58,17 @@ CREATE TABLE `flight_info` (
             flight_date=#{flightDate}
             redundant_business_class=#{redundantBusinessClass}
             redundant_first_class=#{redundantFirstClass}
-            WHERE flight_code=#{flight.flightCode}
+            WHERE flight_code=#{flightCode}
     </update>
     <!--int insertFlight(Flight flight);-->
     <insert id="insertFlight" parameterType="flight">
             INSERT INTO flight_info
-            flight_code=#{flightCode}
-            air_company_code=#{airCompany.airCompanyCode}
-            flight_num=#{flight_num}
-            flight_date=#{flightDate}
-            redundant_business_class=#{redundantBusinessClass}
-            redundant_first_class=#{redundantFirstClass}
-            WHERE flight_code=#{flight.flightCode}
+            (flight_code,air_company_code,flight_num,flight_date,redundant_business_class,redundant_first_class)
+            VALUES (#{flightCode},#{airCompany.airCompanyCode},#{flight_num},#{flightDate},#{redundantBusinessClass},#{redundantFirstClass})
     </insert>
     <!--int deleteFlight(Flight flight);-->
     <delete id="deleteFlight" parameterType="flight">
             DELETE FROM flight_info
-            WHERE flight_code=#{flight.flightCode}
+            WHERE flight_code=#{flightCode}
     </delete>
 </mapper>

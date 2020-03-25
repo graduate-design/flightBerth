@@ -39,10 +39,10 @@ public interface AuthorityDao {
 
     /**
      * 根据权限编码删除权限
-     * @param authorityCode
+     * @param authority
      * @return
      */
-     int deleteAuthorityByAuthorityCode(int authorityCode);
+     int deleteAuthorityByAuthorityCode(Authority authority);
 
     /**
      * 根据权限名称删除权限

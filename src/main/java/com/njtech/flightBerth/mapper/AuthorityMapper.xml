@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.njtech.flightBerth.dao.AuthorityDao">
+        <resultMap id="RM" type="authority">
+            <id property="authorityCode" column="authority_name"/>
+            <result property="authorityName" column="authority_name"/>
+        </resultMap>
+    <!--List<Authority> selectAll();-->
+    <select id="selectAll" resultMap="RM">
+        SELECT * FROM authority_info
+    </select>
+    <!--Authority selectByAuthorityCode(int authorityCode);-->
+    <select id="selectByAuthorityCode" resultMap="RM">
+        SELECT * FROM authority_info
+              WHERE authority_code=#{authorityCode}
+    </select>
+    <!--int updateAuthority(Authority authority);-->
+    <update id="updateAuthority" parameterType="authority">
+        UPDATE
+        authority_info
+        SET
+        authority_code=#{authorityCode}
+        authority_name+#{authorityName}
+        WHERE authority_code=#{authorityCode}
+    </update>
+    <!--int insertAuthority(Authority authority);-->
+    <insert id="insertAuthority" parameterType="authority">
+        INSERT INTO authority_info
+        (authority_code,authority_name)
+        VALUES (#{authorityCode,#{authorityName})
+    </insert>
+    <!--int deleteAuthorityByAuthorityCode(Authority authority);-->
+    <delete id="deleteAuthorityByAuthorityCode" parameterType="authority">
+        DELETE FROM authority_info
+        WHERE authority_code=#{authorityCode}
+    </delete>
+    <!--int deleteAuthorityByAuthorityName(Authority authority);-->
+    <delete id="deleteAuthorityByAuthorityName" parameterType="authority">
+        DELETE FROM authority_info
+        WHERE authority_name=#{authorityName}
+    </delete>
+</mapper>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.njtech.flightBerth.dao.BerthDao">
+        <resultMap id="RM" type="berth">
+            <id property="id" column="id"/>
+            <result property="berthCode" column="berth_code"/>
+            <result property="berthName" column="berth_name"/>
+        </resultMap>
+    <!--List<Berth> selectAll();-->
+    <select id="selectAll" resultMap="RM">
+        SELECT *FROM berth_info
+    </select>
+    <!--Berth selectByBerthCode(String berthCode);-->
+    <select id="selectByBerthCode" resultMap="RM">
+        SELECT * FROM berth_info
+               WHERE berth_code=#{berthCode}
+    </select>
+    <!--Berth selectByBerthName(String berthName);-->
+    <select id="selectByBerthName" resultMap="RM">
+        SELECT * FROM berth_info
+        WHERE berth_name=#{berthName}
+    </select>
+    <!--int updateBerth(Berth berth);-->
+    <update id="updateBerth" parameterType="berth">
+        UPDATE berth_info
+        SET
+        berth_code=#{berth.berthCode}
+        berth_name=#{berth.berthName}
+        WHERE berth_code=#{berthCode}
+    </update>
+    <!--int insertBerth(Berth berth);-->
+    <insert id="insertBerth" parameterType="berth">
+        INSERT INTO berth_info
+        (berth_code,berth_name)
+        VALUES (#{berthCode},#{berthName})
+    </insert>
+    <!--int deleteBerthByBerthCode(Berth berth);-->
+    <delete id="deleteBerthByBerthCode" parameterType="berth">
+        DELETE FROM berth_info
+        WHERE berth_code=#{berthCode}
+    </delete>
+    <!--int deleteBerthByBerthName(Berth berth);-->
+    <delete id="deleteBerthByBerthName" parameterType="berth">
+        DELETE FROM berth_info
+        WHERE berth_code=#{berthCode}
+    </delete>
+</mapper>

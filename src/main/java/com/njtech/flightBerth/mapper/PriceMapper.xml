@@ -144,7 +144,7 @@
         create_time=#{createTime}
         reamrk=#{remark}
         del_flag+#{delFlag}
-        WHERE price_code=#{price.priceCode}
+        WHERE price_code=#{priceCode}
     </update>
     <!--int deletePrice(String priceCode);-->
     <delete id="deletePrice" parameterType="price">
