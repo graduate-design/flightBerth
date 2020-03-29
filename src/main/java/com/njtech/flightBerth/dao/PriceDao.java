@@ -31,7 +31,7 @@ public interface PriceDao {
      * @param priceCode
      * @return
      */
-     PriceDao selectByPriceCode(String priceCode);
+     Price selectByPriceCode(String priceCode);
 
     /**
      * 根据用户与航班信息查询出价（查询该用户在一个航班的历史出价）

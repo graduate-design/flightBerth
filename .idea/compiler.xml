@@ -24,11 +24,13 @@
         <processorPath useClasspath="true" />
         <module name="flightBerth" />
         <module name="jb" />
+        <module name="video" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="flightBerth" target="1.7" />
       <module name="jb" target="1.7" />
+      <module name="video" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

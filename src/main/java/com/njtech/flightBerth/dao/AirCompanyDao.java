@@ -56,5 +56,5 @@ public interface AirCompanyDao {
      * @param airCompany
      * @return
      */
-    int delteByAirCompanyName(AirCompany airCompany);
+    int deleteByAirCompanyName(AirCompany airCompany);
 }

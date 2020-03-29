@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/flightBerth.iml" filepath="$PROJECT_DIR$/.idea/flightBerth.iml" />
       <module fileurl="file://$PROJECT_DIR$/../jb/jb.iml" filepath="$PROJECT_DIR$/../jb/jb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../VideoOnline/video.iml" filepath="$PROJECT_DIR$/../VideoOnline/video.iml" />
     </modules>
   </component>
 </project>
