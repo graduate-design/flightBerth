@@ -22,14 +22,14 @@
         authority_info
         SET
         authority_code=#{authorityCode}
-        authority_name+#{authorityName}
+        authority_name=#{authorityName}
         WHERE authority_code=#{authorityCode}
     </update>
     <!--int insertAuthority(Authority authority);-->
     <insert id="insertAuthority" parameterType="authority">
         INSERT INTO authority_info
         (authority_code,authority_name)
-        VALUES (#{authorityCode,#{authorityName})
+        VALUES (#{authorityCode},#{authorityName})
     </insert>
     <!--int deleteAuthorityByAuthorityCode(Authority authority);-->
     <delete id="deleteAuthorityByAuthorityCode" parameterType="authority">
