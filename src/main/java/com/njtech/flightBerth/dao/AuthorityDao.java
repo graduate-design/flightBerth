@@ -21,7 +21,7 @@ public interface AuthorityDao {
      * @param authorityCode
      * @return
      */
-    Authority selectByAuthorityCode(int authorityCode);
+    Authority selectByAuthorityCode(String authorityCode);
 
     /**
      * 更新权限
