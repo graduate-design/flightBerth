@@ -28,7 +28,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="flightBerth" target="1.7" />
+      <module name="flightBerth" target="1.8" />
       <module name="jb" target="1.7" />
       <module name="video" target="1.7" />
     </bytecodeTargetLevel>
