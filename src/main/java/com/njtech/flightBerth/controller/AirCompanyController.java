@@ -24,8 +24,8 @@ public class AirCompanyController {
         return "air_company_list";
     }
     @RequestMapping("/to_add")
-    public String toAdd(String airCompanyCode, String airCompanyName, int id,Map<String,Object> map){
-        map.put("aircompany",new AirCompany(airCompanyCode,airCompanyName,id));
+    public String toAdd(String airCompanyCode, AirCompany airCompany,Map<String,Object> map){
+        map.put("aircompany",airCompany);
         return "air_company_add";
     }
     @RequestMapping("/add")

@@ -1,6 +1,5 @@
 package com.njtech.flightBerth.controller;
 
-import com.njtech.flightBerth.entity.AirCompany;
 import com.njtech.flightBerth.entity.Flight;
 import com.njtech.flightBerth.service.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +26,8 @@ public class FlightController {
         return "flight_list";
     }
     @RequestMapping("/to_add")
-    public String toAdd(AirCompany airCompany, String flightCode, String flightDate, int flightNum, int id, int redundantBusinessClass, int redundantFirstClass,Map<String,Object> map){
-        map.put("flight",new Flight(airCompany, flightCode, flightDate, flightNum, id, redundantBusinessClass, redundantFirstClass));
+    public String toAdd(Flight flight,Map<String,Object> map){
+        map.put("flight",flight);
         return "flight_add";
     }
     @RequestMapping("/add")

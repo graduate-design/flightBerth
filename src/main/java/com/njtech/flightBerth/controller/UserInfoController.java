@@ -1,6 +1,5 @@
 package com.njtech.flightBerth.controller;
 
-import com.njtech.flightBerth.entity.Authority;
 import com.njtech.flightBerth.entity.User;
 import com.njtech.flightBerth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +26,8 @@ public class UserInfoController {
         return "userInfo_list";
     }
     @RequestMapping("/to_add")
-    public String toAdd(Map<String,Object> map,int age, Authority authority, String email, int id, String identity, String name, String password, int phoneNum, String remark, String sex, String usercode){
-        map.put("user",new User(age,authority,email, id, identity, name, password, phoneNum, remark,  sex, usercode));
+    public String toAdd(Map<String,Object> map,User user ){
+        map.put("user",user);
         return "userInfo_add";
     }
     @RequestMapping("/add")

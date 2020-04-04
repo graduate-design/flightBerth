@@ -18,6 +18,8 @@ public interface PriceService {
      */
     public List<Price> findAll();
 
+
+
     /**
      * 根据航班查询出价
      * @param flight
