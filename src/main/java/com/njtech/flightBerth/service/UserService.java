@@ -64,4 +64,10 @@ public interface UserService {
      * @return
      */
     public int modifyUser(User user);
+
+
+        public int regist(User user);
+
+        public User login(String username,String password);
+
 }

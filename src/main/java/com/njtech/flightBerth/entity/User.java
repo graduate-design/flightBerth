@@ -47,6 +47,10 @@ public class User implements Serializable{
         this.userCode = usercode;
     }
 
+    public User() {
+
+    }
+
     public String getEmail() {
         return email;
     }
@@ -149,4 +153,5 @@ public class User implements Serializable{
                 ", remark='" + remark + '\'' +
                 '}';
     }
+
 }

@@ -137,4 +137,17 @@
                 WHERE
                 user_code=#{usercode}
         </delete>
+
+
+
+
+        <insert id="regist" parameterType="com.njtech.flightBerth.entity.User">
+    insert into user (username,password,phone) values(#{username},#{password},#{phone})
+</insert>
+
+        <select id="login" resultType="com.njtech.flightBerth.entity.User">
+    select * from user where username=#{username} and password=#{password}
+</select>
+
+
 </mapper>

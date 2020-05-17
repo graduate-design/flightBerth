@@ -1,6 +1,7 @@
 package com.njtech.flightBerth.dao;
 
 import com.njtech.flightBerth.entity.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -65,5 +66,12 @@ public interface UserDao {
      * @return
      */
      int updateUser(User user);
+
+
+        //注册
+        public int regist(User user);
+        //登录
+        public User login(@Param("username") String username, @Param("password") String password);
+
 
 }

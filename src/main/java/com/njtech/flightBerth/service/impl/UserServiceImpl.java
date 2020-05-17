@@ -18,8 +18,11 @@ import java.util.List;
 @Service
 @Transactional(propagation = Propagation.REQUIRED,rollbackFor = Exception.class)
 public class UserServiceImpl implements UserService {
-    @Autowired
+
+    @Autowired(required = false)
+
     private UserDao userDao;
+    UserDao userMapper;
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED,rollbackFor = Exception.class)
@@ -66,7 +69,22 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED,rollbackFor = Exception.class)
+
     public int removeUser(User user){
         return userDao.deleteUser(user);
     }
+
+    @Override
+    public int regist(User user) {
+
+        return userMapper.regist(user);
+    }
+
+    @Override
+    public User login(String username, String password) {
+
+        return userMapper.login(username,password);
+    }
+
+
 }
